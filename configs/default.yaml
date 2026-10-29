@@ -1,0 +1,43 @@
+# roboray default config: runnable as-is; override per stage as needed.
+input:
+  uri: "data/synthetic"
+output:
+  uri: "output/run-default"
+  format: "lerobot_v3"
+# Per-model env interpreters and weight paths (required for real models). **On a
+# multi-node cluster, lerobot_python MUST be set in the config's models: section**
+# (it is shipped to workers via runtime_env; a shell export is overridden by runtime_env).
+# models:
+#   lerobot_python: "/abs/path/to/envs/ego-lerobot/bin/python"  # export env interpreter (absolute path, not env name)
+#   # lerobot_script: ...                                      # test-only injection point; do not set in production
+#   vipe_python: "/abs/path/to/envs/ego-vipe/bin/python"
+#   ffs_python: "/abs/path/to/envs/ego-ffs/bin/python"
+#   hammer_python: "/abs/path/to/envs/ego-hamer/bin/python"
+#   vipe_weights: "/abs/path/to/weights/vipe"
+#   ffs_weights: "/abs/path/to/weights/ffs"
+#   hammer_weights: "/abs/path/to/weights/hamer"
+execution:
+  max_gpus: 1
+  num_cpu_actors: 4
+  max_episodes_in_flight: 2
+  backend: "real"
+stages:
+  scene_reconstruction:
+    stereo_max_image_side_px: 640
+    model: "auto"
+  hand_reconstruction:
+    inference_fps: 30
+    wearer_association: true
+    unobserved_gap_s: 0.2
+    min_supporting_joints: 8
+    model: "hamer"
+  action_understanding:
+    vlm_base_url: null
+    vlm_api_key_env: "VLM_API_KEY"
+    vlm_model: "qwen-vl"
+    keyframe_stride: 30
+    model: "openai_vlm"
+  visualization:
+    camera_view: true
+    world_view: true
+    fps: 30

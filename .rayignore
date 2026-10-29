@@ -1,0 +1,22 @@
+# Exclusion list for Ray's working_dir packaging.
+#
+# When this file exists Ray reads **only** it (not .gitignore), so it must be complete.
+# Rationale: third_party/ holds vendored upstream repos (vipe / fast-foundationstereo /
+# hamer, ~271 MB total). If they get packed into runtime_env, every ray.init has to
+# compress and upload them, which slows tests down and can overwhelm the local Ray
+# node (actors fail with "Owner's node has crashed").
+third_party/
+deploy/assets/
+assets/
+.superpowers/
+run/
+output/
+data/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.venv/
+.git/

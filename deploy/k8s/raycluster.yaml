@@ -1,0 +1,171 @@
+# roboray RayCluster: the head carries no pipeline work; workers are split into CPU/GPU
+# groups and scale from zero on demand.
+#
+# Key conventions (all measured; see docs/superpowers/plans/D-l2-results.md):
+#  1. GPUs are only available inside a **K8s Pod** (manual docker never sees CUDA), and the
+#     driver userspace library `libcuda.so.1` must be **bundled in the image**; HaMeR also
+#     needs libEGL (hamer.utils pulls pyrender/OpenGL at import time) -> use `ego-hamer:l2`
+#     (= platform vLLM image + one layer of libegl1, see deploy/Dockerfile.hamer). When only
+#     ViPE/FFS are used, the platform vLLM image works as well.
+#  2. `ray` must resolve to /ego/roboray-venv (python 3.10 + ray 2.59 + roboray) rather
+#     than the image's bundled ray 2.58 (a 2.59 client against a 2.58 cluster is a version
+#     mismatch). Hence the venv bin is put first on PATH so the `ray start` injected by
+#     KubeRay uses it.
+#  3. seccompProfile: Unconfined -- the platform default seccomp blocks pthread_create
+#     (inside the container even the first thread cannot be created; pip/OpenBLAS all crash).
+#  4. Model envs / weights / app code / datasets all go through hostPath (/home/ubuntu/ego -> /ego);
+#     the image stays slim and no GB-scale content is pushed.
+#
+# Elasticity (E3, spec §6.1):
+#  - enableInTreeAutoscaling: true + autoscalerOptions.idleTimeoutSeconds: 300
+#    (machine-level reclamation threshold; must be > the actor idle-exit threshold of 240s,
+#    otherwise a node never waits for actors to exit).
+#  - head rayStartParams.num-cpus: "0": the head carries no pipeline work (Ray **logical**
+#    resource is 0; this is separate from keeping 6 CPUs at the Pod layer -- each is pinned
+#    independently to prevent accidental mixing).
+#  - worker groups start at replicas/minReplicas = 0 (so the autoscaler really gets to work);
+#    maxReplicas is injected by render.py's MAX_GPU_WORKERS / MAX_CPU_WORKERS.
+#
+# Storage in three layers (spec §4.6):
+#  - workspace (workspace_root): node-local hostPath /home/ubuntu/ego -> /ego, pinned by node
+#    affinity, for fast local large-array I/O.
+#  - input / output: shared volumes mounted at /data/input and /data/output -- prepare must
+#    read media from any node, and users take finished artifacts from the shared volume. They
+#    default to hostPath (single node); render.py's SHARED_CLAIM is only a path component of
+#    the hostPath (**not** a PVC switch). **Multi-node deployments** must have ops manually
+#    replace the shared-input / shared-output volume blocks with a single RWX PVC or NFS.
+apiVersion: ray.io/v1
+kind: RayCluster
+metadata:
+  name: roboray-cluster
+  namespace: roboray
+spec:
+  rayVersion: "2.59.0"
+  enableInTreeAutoscaling: true
+  autoscalerOptions:
+    idleTimeoutSeconds: 300
+  headGroupSpec:
+    rayStartParams:
+      dashboard-host: "0.0.0.0"
+      num-cpus: "0"
+    template:
+      spec:
+        nodeSelector:
+          kubernetes.io/hostname: "__NODE__"
+        securityContext:
+          seccompProfile: {type: Unconfined}
+        containers:
+          - name: ray-head
+            image: __IMAGE__
+            imagePullPolicy: IfNotPresent
+            env:
+              - {name: PATH, value: "/ego/roboray-venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}
+              - {name: PYTHONPATH, value: "/ego/app/src"}
+              - {name: OPENBLAS_NUM_THREADS, value: "1"}
+              - {name: ROBORAY_VIPE_PYTHON, value: "/ego/vipe-venv/bin/python"}
+              - {name: ROBORAY_FFS_PYTHON, value: "/ego/ego-models/bin/python"}
+              - {name: ROBORAY_FFS_REPO, value: "/ego/fast-foundationstereo"}
+              - {name: ROBORAY_FFS_WEIGHTS, value: "/ego/weights/ffs"}
+              - {name: ROBORAY_LEROBOT_PYTHON, value: "/ego/roboray-venv/bin/python"}
+              - {name: TORCH_HOME, value: "/ego/torch_home"}
+              - {name: HF_HUB_OFFLINE, value: "1"}
+              - {name: ROBORAY_HAMER_PYTHON, value: "/ego/hamer-venv/bin/python"}
+              - {name: ROBORAY_HAMER_WEIGHTS, value: "/ego/weights/hamer"}
+              - {name: PYOPENGL_PLATFORM, value: "egl"}
+            resources:
+              requests: {cpu: "6", memory: "8Gi"}
+              limits:   {cpu: "6", memory: "8Gi"}
+            volumeMounts:
+              - {name: ego, mountPath: /ego}
+              - {name: shared-input, mountPath: /data/input}
+              - {name: shared-output, mountPath: /data/output}
+        volumes:
+          - name: ego
+            hostPath: {path: /home/ubuntu/ego, type: Directory}
+          - name: shared-input
+            hostPath: {path: /home/ubuntu/ego-shared/__SHARED_INPUT__, type: DirectoryOrCreate}
+          - name: shared-output
+            hostPath: {path: /home/ubuntu/ego-shared/__SHARED_OUTPUT__, type: DirectoryOrCreate}
+  workerGroupSpecs:
+    - groupName: gpu-workers
+      replicas: 0
+      minReplicas: 0
+      maxReplicas: __MAX_GPU_WORKERS__
+      rayStartParams:
+        num-gpus: "1"
+      template:
+        spec:
+          nodeSelector:
+            kubernetes.io/hostname: "__NODE__"
+          securityContext:
+            seccompProfile: {type: Unconfined}
+          containers:
+            - name: ray-worker
+              image: __IMAGE__
+              imagePullPolicy: IfNotPresent
+              env:
+                - {name: PATH, value: "/ego/roboray-venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}
+                - {name: PYTHONPATH, value: "/ego/app/src"}
+                - {name: OPENBLAS_NUM_THREADS, value: "1"}
+                - {name: OMP_NUM_THREADS, value: "4"}
+                - {name: ROBORAY_VIPE_PYTHON, value: "/ego/vipe-venv/bin/python"}
+                - {name: ROBORAY_FFS_PYTHON, value: "/ego/ego-models/bin/python"}
+                - {name: ROBORAY_FFS_REPO, value: "/ego/fast-foundationstereo"}
+                - {name: ROBORAY_FFS_WEIGHTS, value: "/ego/weights/ffs"}
+                - {name: ROBORAY_LEROBOT_PYTHON, value: "/ego/roboray-venv/bin/python"}
+                - {name: TORCH_HOME, value: "/ego/torch_home"}
+                - {name: HF_HUB_OFFLINE, value: "1"}
+                - {name: ROBORAY_HAMER_PYTHON, value: "/ego/hamer-venv/bin/python"}
+                - {name: ROBORAY_HAMER_WEIGHTS, value: "/ego/weights/hamer"}
+                - {name: PYOPENGL_PLATFORM, value: "egl"}
+              resources:
+                # 96Gi: at 32Gi the 4th episode of a 6-episode real-model campaign (60fps)
+                # triggered Ray's memory killer (resident models + accumulated frame buffers;
+                # the node has 502Gi physical RAM, so the host was not the limit).
+                requests: {cpu: "8", memory: "96Gi", nvidia.com/gpu: "1"}
+                limits:   {cpu: "8", memory: "96Gi", nvidia.com/gpu: "1"}
+              volumeMounts:
+                - {name: ego, mountPath: /ego}
+                - {name: shared-input, mountPath: /data/input}
+                - {name: shared-output, mountPath: /data/output}
+          volumes:
+            - name: ego
+              hostPath: {path: /home/ubuntu/ego, type: Directory}
+            - name: shared-input
+              hostPath: {path: /home/ubuntu/ego-shared/__SHARED_INPUT__, type: DirectoryOrCreate}
+            - name: shared-output
+              hostPath: {path: /home/ubuntu/ego-shared/__SHARED_OUTPUT__, type: DirectoryOrCreate}
+    # CPU group: carries CPU-only jobs that need no per-Episode workspace; currently an
+    # extension slot. Hence no ego workspace is mounted, only shared-output -- the driver on
+    # the head writes manifests to it; the cpu-workers mount is kept for future extension.
+    #   Correction 2026-10-24: in RayJob K8sJobMode that K8s Job pod is the **submission
+    #   client**; the Ray driver process runs in the head container, not in the K8s Job pod.
+    - groupName: cpu-workers
+      replicas: 0
+      minReplicas: 0
+      maxReplicas: __MAX_CPU_WORKERS__
+      rayStartParams:
+        num-cpus: "8"
+        num-gpus: "0"
+      template:
+        spec:
+          nodeSelector:
+            kubernetes.io/hostname: "__NODE__"
+          securityContext:
+            seccompProfile: {type: Unconfined}
+          containers:
+            - name: ray-worker
+              image: __IMAGE__
+              imagePullPolicy: IfNotPresent
+              env:
+                - {name: PATH, value: "/ego/roboray-venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}
+                - {name: PYTHONPATH, value: "/ego/app/src"}
+                - {name: OPENBLAS_NUM_THREADS, value: "1"}
+              resources:
+                requests: {cpu: "8", memory: "16Gi"}
+                limits:   {cpu: "8", memory: "16Gi"}
+              volumeMounts:
+                - {name: shared-output, mountPath: /data/output}
+          volumes:
+            - name: shared-output
+              hostPath: {path: /home/ubuntu/ego-shared/__SHARED_OUTPUT__, type: DirectoryOrCreate}

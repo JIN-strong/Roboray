@@ -1,0 +1,42 @@
+# Sample three-tier real-model benchmark config (spec §3.2). The three tiers are switched by
+# run_benchmark.py flags; this file does not change per tier.
+# Values sourced from /ego/l3-final.yaml on the A800 node (the real-model config validated in
+# the E3 final verification); relative to that file, only input.uri was changed to
+# /ego/bench-data, output.uri to /ego/bench/out, and action_understanding's probe fields are
+# written out explicitly (the branch is decided by the probe_vlm result inside the pod).
+# Key names match the *Config classes in src/roboray/api/config.py; numeric values follow
+# the actual node.
+# [Measured deviation 2026-10-26] /ego/bench-data (synthetic data) is rejected by real ViPE
+# (SLAM point cloud too sparse) -- the actual run used /ego/bench-real-data (real video clips,
+# monocular); read docs/bench/2026-10-26-bench-results.md §5 before reproducing. max_gpus is
+# not honored when attaching an existing cluster (workers scale 1-2 via the autoscaler).
+input: {uri: /ego/bench-data}
+output: {uri: /ego/bench/out, format: lerobot_v3}
+execution:
+  max_gpus: 1
+  num_cpu_actors: 4
+  max_episodes_in_flight: 2
+  backend: real
+  model_worker: resident
+stages:
+  scene_reconstruction: {model: auto, stereo_max_image_side_px: 640}
+  hand_reconstruction:
+    inference_fps: 30
+    wearer_association: true
+    unobserved_gap_s: 0.2
+    min_supporting_joints: 8
+    model: hamer
+  action_understanding:   # probe reachable_multimodal -> model: openai_vlm + fill vlm_*; otherwise keep none
+    model: none
+    vlm_base_url: null
+    vlm_api_key_env: VLM_API_KEY
+    vlm_model: qwen-vl
+    keyframe_stride: 30
+  visualization: {camera_view: true, world_view: true}
+models:   # key names match ModelEnvsConfig in api/config.py; values taken from /ego/l3-final.yaml on the node
+  vipe_python: /ego/vipe-venv/bin/python
+  ffs_python: /ego/ego-models/bin/python
+  ffs_weights: /ego/weights/ffs
+  hammer_python: /ego/hamer-venv/bin/python
+  hammer_weights: /ego/weights/hamer
+  lerobot_python: /ego/vipe-venv/bin/python

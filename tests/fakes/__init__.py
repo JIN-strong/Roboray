@@ -1,0 +1,1 @@
+"""Test doubles implementing the model protocols."""

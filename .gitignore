@@ -1,0 +1,28 @@
+
+.superpowers/
+run/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.venv/
+output/
+data/synthetic/
+third_party/*/
+!third_party/.gitkeep
+
+# MANO models are MPI-licensed and must not be committed (register and download separately)
+MANO*.pkl
+mano/
+
+# Local working notes, not part of the project
+/校验项.md
+
+# Third-party model weights are not redistributed (download; see deploy/assets/weights/*/README.md)
+deploy/assets/weights/**/*.pth
+deploy/assets/weights/**/*.onnx
+
+# Local analysis report (never committed)
+/*技术分析报告.md

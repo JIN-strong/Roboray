@@ -1,0 +1,1532 @@
+{
+  "modes": {
+    "serial": {
+      "ok": true,
+      "error": null,
+      "total_seconds": 396.726856,
+      "failed": 0,
+      "n_episodes": 6,
+      "snapshots": 0,
+      "load_events": 12,
+      "timeline": [
+        {
+          "t": 0.005062,
+          "episode_id": "ep_0001",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 0.249136,
+          "episode_id": "ep_0001",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 0.249354,
+          "episode_id": "ep_0001",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 23.924385,
+          "episode_id": "ep_0001",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 23.924698,
+          "episode_id": "ep_0001",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 23.924927,
+          "episode_id": "ep_0001",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 40.341319,
+          "episode_id": "ep_0001",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 40.341617,
+          "episode_id": "ep_0001",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 40.341834,
+          "episode_id": "ep_0001",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 40.614662,
+          "episode_id": "ep_0001",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 40.614887,
+          "episode_id": "ep_0001",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 45.528218,
+          "episode_id": "ep_0001",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 45.528547,
+          "episode_id": "ep_0001",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 70.113108,
+          "episode_id": "ep_0001",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 70.11339,
+          "episode_id": "ep_0002",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 70.360998,
+          "episode_id": "ep_0002",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 70.361177,
+          "episode_id": "ep_0002",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 95.259753,
+          "episode_id": "ep_0002",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 95.260071,
+          "episode_id": "ep_0002",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 95.260342,
+          "episode_id": "ep_0002",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 109.045678,
+          "episode_id": "ep_0002",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 109.046116,
+          "episode_id": "ep_0002",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 109.046459,
+          "episode_id": "ep_0002",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 109.305465,
+          "episode_id": "ep_0002",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 109.305792,
+          "episode_id": "ep_0002",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 112.397882,
+          "episode_id": "ep_0002",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 112.398112,
+          "episode_id": "ep_0002",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 136.307029,
+          "episode_id": "ep_0002",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 136.307315,
+          "episode_id": "ep_0003",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 136.569793,
+          "episode_id": "ep_0003",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 136.570046,
+          "episode_id": "ep_0003",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 159.770299,
+          "episode_id": "ep_0003",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 159.770697,
+          "episode_id": "ep_0003",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 159.770909,
+          "episode_id": "ep_0003",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 175.550888,
+          "episode_id": "ep_0003",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 175.551231,
+          "episode_id": "ep_0003",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 175.551473,
+          "episode_id": "ep_0003",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 175.805025,
+          "episode_id": "ep_0003",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 175.805363,
+          "episode_id": "ep_0003",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 180.428581,
+          "episode_id": "ep_0003",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 180.428797,
+          "episode_id": "ep_0003",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 204.522628,
+          "episode_id": "ep_0003",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 204.522851,
+          "episode_id": "ep_0004",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 204.760945,
+          "episode_id": "ep_0004",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 204.761156,
+          "episode_id": "ep_0004",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 224.253118,
+          "episode_id": "ep_0004",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 224.253442,
+          "episode_id": "ep_0004",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 224.253671,
+          "episode_id": "ep_0004",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 238.102783,
+          "episode_id": "ep_0004",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 238.103195,
+          "episode_id": "ep_0004",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 238.103542,
+          "episode_id": "ep_0004",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 238.379425,
+          "episode_id": "ep_0004",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 238.379658,
+          "episode_id": "ep_0004",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 241.958628,
+          "episode_id": "ep_0004",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 241.958904,
+          "episode_id": "ep_0004",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 266.137502,
+          "episode_id": "ep_0004",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 266.137792,
+          "episode_id": "ep_0005",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 266.396233,
+          "episode_id": "ep_0005",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 266.396504,
+          "episode_id": "ep_0005",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 287.255187,
+          "episode_id": "ep_0005",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 287.255608,
+          "episode_id": "ep_0005",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 287.255854,
+          "episode_id": "ep_0005",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 303.302159,
+          "episode_id": "ep_0005",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 303.302583,
+          "episode_id": "ep_0005",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 303.302893,
+          "episode_id": "ep_0005",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 303.557774,
+          "episode_id": "ep_0005",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 303.55806,
+          "episode_id": "ep_0005",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 307.707577,
+          "episode_id": "ep_0005",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 307.707789,
+          "episode_id": "ep_0005",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 332.092796,
+          "episode_id": "ep_0005",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 332.093106,
+          "episode_id": "ep_0006",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 332.334544,
+          "episode_id": "ep_0006",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 332.334713,
+          "episode_id": "ep_0006",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 351.984507,
+          "episode_id": "ep_0006",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 351.984991,
+          "episode_id": "ep_0006",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 351.985289,
+          "episode_id": "ep_0006",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 366.798268,
+          "episode_id": "ep_0006",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 366.798598,
+          "episode_id": "ep_0006",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 366.798816,
+          "episode_id": "ep_0006",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 367.060318,
+          "episode_id": "ep_0006",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 367.060567,
+          "episode_id": "ep_0006",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 371.596885,
+          "episode_id": "ep_0006",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 371.597112,
+          "episode_id": "ep_0006",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 395.704723,
+          "episode_id": "ep_0006",
+          "stage": "publish",
+          "event": "end"
+        }
+      ],
+      "speedup_vs_serial": null
+    },
+    "pipeline": {
+      "ok": true,
+      "error": null,
+      "total_seconds": 231.817723,
+      "failed": 0,
+      "n_episodes": 6,
+      "snapshots": 0,
+      "load_events": 10,
+      "timeline": [
+        {
+          "t": 0.005391,
+          "episode_id": "ep_0001",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 0.00622,
+          "episode_id": "ep_0002",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 0.283588,
+          "episode_id": "ep_0001",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 0.283854,
+          "episode_id": "ep_0001",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 0.285162,
+          "episode_id": "ep_0002",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 24.198729,
+          "episode_id": "ep_0001",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 24.198741,
+          "episode_id": "ep_0001",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 24.199058,
+          "episode_id": "ep_0002",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 34.681267,
+          "episode_id": "ep_0002",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 34.681688,
+          "episode_id": "ep_0001",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 50.966028,
+          "episode_id": "ep_0001",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 50.96604,
+          "episode_id": "ep_0001",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 50.966485,
+          "episode_id": "ep_0002",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 50.967014,
+          "episode_id": "ep_0001",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 51.33616,
+          "episode_id": "ep_0001",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 51.336534,
+          "episode_id": "ep_0001",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 54.832576,
+          "episode_id": "ep_0002",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 54.832864,
+          "episode_id": "ep_0002",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 55.095762,
+          "episode_id": "ep_0002",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 55.122706,
+          "episode_id": "ep_0002",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 57.809146,
+          "episode_id": "ep_0001",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 57.809486,
+          "episode_id": "ep_0001",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 60.39193,
+          "episode_id": "ep_0002",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 60.392197,
+          "episode_id": "ep_0002",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 79.988673,
+          "episode_id": "ep_0001",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 79.989163,
+          "episode_id": "ep_0003",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 80.246918,
+          "episode_id": "ep_0003",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 80.247213,
+          "episode_id": "ep_0003",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 82.133502,
+          "episode_id": "ep_0002",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 96.769601,
+          "episode_id": "ep_0004",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 98.033177,
+          "episode_id": "ep_0004",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 98.03359,
+          "episode_id": "ep_0004",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 103.381155,
+          "episode_id": "ep_0003",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 103.381165,
+          "episode_id": "ep_0003",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 103.381483,
+          "episode_id": "ep_0003",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 112.402707,
+          "episode_id": "ep_0004",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 112.402718,
+          "episode_id": "ep_0004",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 112.40313,
+          "episode_id": "ep_0004",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 119.379192,
+          "episode_id": "ep_0003",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 119.379204,
+          "episode_id": "ep_0003",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 119.379609,
+          "episode_id": "ep_0003",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 119.646511,
+          "episode_id": "ep_0003",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 119.646791,
+          "episode_id": "ep_0003",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 123.16405,
+          "episode_id": "ep_0003",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 123.164419,
+          "episode_id": "ep_0003",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 132.924901,
+          "episode_id": "ep_0004",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 132.924915,
+          "episode_id": "ep_0004",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 132.925313,
+          "episode_id": "ep_0004",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 133.178155,
+          "episode_id": "ep_0004",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 133.178556,
+          "episode_id": "ep_0004",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 139.317112,
+          "episode_id": "ep_0004",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 139.317366,
+          "episode_id": "ep_0004",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 147.756028,
+          "episode_id": "ep_0003",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 147.756513,
+          "episode_id": "ep_0005",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 148.106854,
+          "episode_id": "ep_0005",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 148.107107,
+          "episode_id": "ep_0005",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 150.60212,
+          "episode_id": null,
+          "stage": "unload",
+          "event": "unload"
+        },
+        {
+          "t": 163.738707,
+          "episode_id": "ep_0005",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 163.738717,
+          "episode_id": "ep_0005",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 163.739041,
+          "episode_id": "ep_0005",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 164.939169,
+          "episode_id": "ep_0004",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 164.939668,
+          "episode_id": "ep_0006",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 165.190126,
+          "episode_id": "ep_0006",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 165.190421,
+          "episode_id": "ep_0006",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 183.810756,
+          "episode_id": "ep_0005",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 183.810771,
+          "episode_id": "ep_0005",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 183.811068,
+          "episode_id": "ep_0005",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 184.007677,
+          "episode_id": "ep_0005",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 184.007951,
+          "episode_id": "ep_0005",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 185.370869,
+          "episode_id": "ep_0006",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 185.370879,
+          "episode_id": "ep_0006",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 185.371129,
+          "episode_id": "ep_0006",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 187.272536,
+          "episode_id": "ep_0005",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 187.272786,
+          "episode_id": "ep_0005",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 199.282044,
+          "episode_id": "ep_0006",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 199.282053,
+          "episode_id": "ep_0006",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 199.282311,
+          "episode_id": "ep_0006",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 199.555857,
+          "episode_id": "ep_0006",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 199.556126,
+          "episode_id": "ep_0006",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 207.223487,
+          "episode_id": "ep_0006",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 207.223878,
+          "episode_id": "ep_0006",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 211.330783,
+          "episode_id": "ep_0005",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 214.978012,
+          "episode_id": null,
+          "stage": "unload",
+          "event": "unload"
+        },
+        {
+          "t": 230.489812,
+          "episode_id": null,
+          "stage": "unload",
+          "event": "unload"
+        },
+        {
+          "t": 231.81526,
+          "episode_id": "ep_0006",
+          "stage": "publish",
+          "event": "end"
+        }
+      ],
+      "speedup_vs_serial": 1.7114
+    },
+    "adaptive": {
+      "ok": true,
+      "error": null,
+      "total_seconds": 145.506701,
+      "failed": 0,
+      "n_episodes": 6,
+      "snapshots": 12,
+      "load_events": 2,
+      "timeline": [
+        {
+          "t": 0.005942,
+          "episode_id": "ep_0001",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 0.006564,
+          "episode_id": "ep_0002",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 0.007251,
+          "episode_id": "ep_0003",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 0.007898,
+          "episode_id": "ep_0004",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 0.36839,
+          "episode_id": "ep_0004",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 0.368847,
+          "episode_id": "ep_0004",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 0.369339,
+          "episode_id": "ep_0005",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 0.385133,
+          "episode_id": "ep_0001",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 0.385523,
+          "episode_id": "ep_0006",
+          "stage": "prepare",
+          "event": "start"
+        },
+        {
+          "t": 0.413646,
+          "episode_id": "ep_0002",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 0.426169,
+          "episode_id": "ep_0003",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 0.694724,
+          "episode_id": "ep_0005",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 0.712919,
+          "episode_id": "ep_0006",
+          "stage": "prepare",
+          "event": "end"
+        },
+        {
+          "t": 20.010947,
+          "episode_id": "ep_0004",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 20.010957,
+          "episode_id": "ep_0004",
+          "stage": "scene",
+          "event": "load"
+        },
+        {
+          "t": 20.011318,
+          "episode_id": "ep_0001",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 30.797861,
+          "episode_id": "ep_0001",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 30.798423,
+          "episode_id": "ep_0002",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 41.162186,
+          "episode_id": "ep_0002",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 41.16255,
+          "episode_id": "ep_0003",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 50.013547,
+          "episode_id": "ep_0003",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 50.014086,
+          "episode_id": "ep_0005",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 56.199567,
+          "episode_id": "ep_0005",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 56.199943,
+          "episode_id": "ep_0006",
+          "stage": "scene",
+          "event": "start"
+        },
+        {
+          "t": 63.619671,
+          "episode_id": "ep_0006",
+          "stage": "scene",
+          "event": "end"
+        },
+        {
+          "t": 63.620026,
+          "episode_id": "ep_0004",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 76.037963,
+          "episode_id": "ep_0004",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 76.037972,
+          "episode_id": "ep_0004",
+          "stage": "hand",
+          "event": "load"
+        },
+        {
+          "t": 76.038346,
+          "episode_id": "ep_0001",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 76.038938,
+          "episode_id": "ep_0004",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 76.267709,
+          "episode_id": "ep_0004",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 76.268057,
+          "episode_id": "ep_0004",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 80.046088,
+          "episode_id": "ep_0001",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 80.046465,
+          "episode_id": "ep_0002",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 80.046952,
+          "episode_id": "ep_0001",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 80.412441,
+          "episode_id": "ep_0001",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 80.412722,
+          "episode_id": "ep_0001",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 82.03885,
+          "episode_id": "ep_0004",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 82.039193,
+          "episode_id": "ep_0004",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 83.912263,
+          "episode_id": "ep_0002",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 83.912731,
+          "episode_id": "ep_0003",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 83.913403,
+          "episode_id": "ep_0002",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 84.205846,
+          "episode_id": "ep_0002",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 84.206227,
+          "episode_id": "ep_0002",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 86.855823,
+          "episode_id": "ep_0001",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 86.856279,
+          "episode_id": "ep_0001",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 87.517275,
+          "episode_id": "ep_0003",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 87.51774,
+          "episode_id": "ep_0005",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 87.51824,
+          "episode_id": "ep_0003",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 87.773618,
+          "episode_id": "ep_0003",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 87.773888,
+          "episode_id": "ep_0003",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 88.287141,
+          "episode_id": "ep_0002",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 88.287462,
+          "episode_id": "ep_0002",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 91.181165,
+          "episode_id": "ep_0005",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 91.181516,
+          "episode_id": "ep_0006",
+          "stage": "hand",
+          "event": "start"
+        },
+        {
+          "t": 92.739657,
+          "episode_id": "ep_0003",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 92.739963,
+          "episode_id": "ep_0005",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 93.107374,
+          "episode_id": "ep_0005",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 93.107851,
+          "episode_id": "ep_0003",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 94.342039,
+          "episode_id": "ep_0006",
+          "stage": "hand",
+          "event": "end"
+        },
+        {
+          "t": 110.582773,
+          "episode_id": "ep_0004",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 110.583202,
+          "episode_id": "ep_0005",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 113.674876,
+          "episode_id": "ep_0001",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 113.675271,
+          "episode_id": "ep_0006",
+          "stage": "fusion",
+          "event": "start"
+        },
+        {
+          "t": 113.933454,
+          "episode_id": "ep_0006",
+          "stage": "fusion",
+          "event": "end"
+        },
+        {
+          "t": 113.933745,
+          "episode_id": "ep_0006",
+          "stage": "action",
+          "event": "start"
+        },
+        {
+          "t": 114.869049,
+          "episode_id": "ep_0005",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 114.869434,
+          "episode_id": "ep_0005",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 116.011033,
+          "episode_id": "ep_0002",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 119.497361,
+          "episode_id": "ep_0003",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 121.471519,
+          "episode_id": "ep_0006",
+          "stage": "action",
+          "event": "end"
+        },
+        {
+          "t": 121.471781,
+          "episode_id": "ep_0006",
+          "stage": "publish",
+          "event": "start"
+        },
+        {
+          "t": 125.503029,
+          "episode_id": null,
+          "stage": "unload",
+          "event": "unload"
+        },
+        {
+          "t": 138.971641,
+          "episode_id": "ep_0005",
+          "stage": "publish",
+          "event": "end"
+        },
+        {
+          "t": 145.505023,
+          "episode_id": "ep_0006",
+          "stage": "publish",
+          "event": "end"
+        }
+      ],
+      "speedup_vs_serial": 2.7265
+    }
+  },
+  "overlap": {
+    "max_concurrent_episodes": 5,
+    "max_concurrent_stages": 5,
+    "evidence": [
+      {
+        "t": 0.369339,
+        "episodes": {
+          "ep_0001": [
+            "prepare"
+          ],
+          "ep_0002": [
+            "prepare"
+          ],
+          "ep_0003": [
+            "prepare"
+          ],
+          "ep_0005": [
+            "prepare"
+          ],
+          "ep_0004": [
+            "scene"
+          ]
+        }
+      }
+    ],
+    "open_intervals": 0
+  },
+  "action_model": "openai_vlm"
+}

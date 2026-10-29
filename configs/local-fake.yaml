@@ -1,0 +1,26 @@
+# Local CPU end-to-end (fake models): no GPU needed; validates pipeline orchestration.
+models:
+  # Local fake mode: export goes through a stub script, no lerobot/torch env required
+  # (local verification only, not for production)
+  lerobot_python: "python"
+  lerobot_script: "tests/fakes/modelenv_scripts/fake_lerobot_export.py"
+input:
+  uri: "data/synthetic"
+output:
+  uri: "output/run-fake"
+  format: "lerobot_v3"
+execution:
+  max_gpus: 2
+  num_cpu_actors: 4
+  max_episodes_in_flight: 3
+  backend: "test"
+stages:
+  scene_reconstruction:
+    model: "fake_scene"
+  hand_reconstruction:
+    model: "fake_hand"
+  action_understanding:
+    model: "fake_vlm"
+  visualization:
+    camera_view: true
+    world_view: true

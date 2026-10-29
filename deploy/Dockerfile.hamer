@@ -1,0 +1,28 @@
+# HaMeR runtime image = platform vLLM image + one layer of system libraries.
+#
+# Why this layer is needed: `hamer.utils.__init__` does
+# `from .renderer import Renderer` at **import time**, and the top level of
+# `hamer/utils/renderer.py` does `import pyrender` -> OpenGL -> needs **libEGL**.
+# The platform vLLM image does not include it, so
+# `from hamer.models import load_hamer` fails with an ImportError:
+#   ImportError: Unable to load EGL library: 'EGL: cannot open shared object file'
+#
+# Three measured facts:
+#  1. `docker build` RUN steps go over bridge networking with **no network** by
+#     default -> you must `docker build --network host`; the internal apt mirror
+#     is reachable from inside the container (the node itself has no internet).
+#  2. The base image ships `APT::Update::Post-Invoke*` hooks that return
+#     non-zero in the build environment and make `apt-get update` fail as a
+#     whole with exit 100; `-o APT::Update::Post-Invoke::=` cannot clear them,
+#     so the conf files defining them must be deleted directly.
+#  3. Keep the build context small -- using /home/ubuntu/ego as the context
+#     sends 25GB to the daemon.
+#
+# Usage (run from a directory containing only this Dockerfile):
+#   sudo docker build --network host -t ego-hamer:l2 .
+FROM registry.example.com/roboray/base:v0.26.0
+RUN sed -i "/Post-Invoke/d" /etc/apt/apt.conf.d/* 2>/dev/null || true; \
+    apt-get update \
+ && apt-get install -y --no-install-recommends libegl1 libgl1 libglib2.0-0 libgomp1 \
+ && rm -rf /var/lib/apt/lists/*
+ENV PYOPENGL_PLATFORM=egl

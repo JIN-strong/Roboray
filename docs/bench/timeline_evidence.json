@@ -1,0 +1,27 @@
+{
+  "max_concurrent_episodes": 5,
+  "max_concurrent_stages": 5,
+  "evidence": [
+    {
+      "t": 0.369339,
+      "episodes": {
+        "ep_0001": [
+          "prepare"
+        ],
+        "ep_0002": [
+          "prepare"
+        ],
+        "ep_0003": [
+          "prepare"
+        ],
+        "ep_0005": [
+          "prepare"
+        ],
+        "ep_0004": [
+          "scene"
+        ]
+      }
+    }
+  ],
+  "open_intervals": 0
+}
